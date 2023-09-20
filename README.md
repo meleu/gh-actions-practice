@@ -122,15 +122,6 @@ We can define two different types of `steps`:
 
 Main concepts:
 
-Triggering the workflow on multiple events
-
-```yaml
-on:
-  - push
-  - dispatch_workflow
-```
-
-
 Defining that a job only runs after another one finishes with success
 
 ```yaml
@@ -142,6 +133,17 @@ jobs:
     needs: test
     # ...
 ```
+
+In this example we're also using the notation where we can trigger the workflow
+on different events.
+
+```yaml
+on:
+  - push
+  - dispatch_workflow
+```
+
+
 
 ---
 
