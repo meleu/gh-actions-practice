@@ -50,7 +50,11 @@ jobs:
         run: <shell-command> # can be a shell command
 ```
 
+---
+
 ## Examples
+
+---
 
 ### Hello World
 
@@ -76,6 +80,8 @@ jobs:
         run: echo "Hello World"
 ```
 
+
+---
 
 ### Test on push
 
@@ -107,6 +113,8 @@ We can define two different types of `steps`:
 - `uses`: to run a "GitHub Action" (a custom application that performs a, typically complex, frequently repeated task).
     - in this case we are using an action to get the source code from the repo.
 
+---
+
 ### Build after test
 
 - [example](https://github.com/meleu/gh-actions-practice/commit/523eb24a2386d27aedd33f2e2367f4f470907863#diff-5c3fa597431eda03ac3339ae6bf7f05e1a50d6fc7333679ec38e21b337cb6721)
@@ -134,6 +142,8 @@ jobs:
     needs: test
     # ...
 ```
+
+---
 
 ### Only build when push on master
 
