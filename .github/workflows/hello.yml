@@ -1,0 +1,20 @@
+# define the name of the **WORKFLOW**
+name: My First Workflow
+
+# define the event that triggers this workflow
+on:  workflow_dispatch # <- this means "manual trigger"
+
+# define the **JOBS** of this workflow
+jobs:
+  hello-world:
+    # define the runner for this job
+    # list of supported runners:
+    # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
+    runs-on: ubuntu-latest
+
+    # define the **STEPS** of this job
+    steps:
+      - name: Print greeting
+        run: echo "Hello World"
+      - name: Print bye
+        run: echo "Done, bye!"
