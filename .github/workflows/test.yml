@@ -1,0 +1,16 @@
+name: Run Tests
+
+on: push # <- run this workflow right after pushing a change
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: get code
+        # using the "checkout" action to get the code from the repo
+        uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm ci
+      - name: run tests
+        run: npm run test
