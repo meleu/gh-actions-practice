@@ -35,7 +35,7 @@ A little more detailed:
     - can be conditional
 
 
-## GitHub Workflow basic structure
+## Workflow basic structure
 
 ```yaml
 name: <workflow-name>
@@ -50,20 +50,34 @@ jobs:
         run: <shell-command> # can be a shell command
 ```
 
-## Hello World
+## Examples
+
+### Hello World
 
 - [example](./.github/workflows/hello.yml)
 - [logs](https://github.com/meleu/gh-actions-practice/actions/workflows/hello.yml)
 
-Main concept:
+Main concepts:
+
+Only trigger the workflow manually
 ```yaml
 # ...
 on: dispatch_workflow # <- trigger workflow manually
 # ...
 ```
 
+Defining a runner and executing a shell command:
+```yaml
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print greeting
+        run: echo "Hello World"
+```
 
-## Test on push
+
+### Test on push
 
 - [example](./.github/workflows/test.yml)
 - [logs](https://github.com/meleu/gh-actions-practice/actions/workflows/test.yml)
@@ -92,5 +106,33 @@ We can define two different types of `steps`:
 - `run`: to execute actual shell commands
 - `uses`: to run a "GitHub Action" (a custom application that performs a, typically complex, frequently repeated task).
     - in this case we are using an action to get the source code from the repo.
+
+### Build after test
+
+- [example](./.github/workflows/build.yml)
+- [logs](https://github.com/meleu/gh-actions-practice/actions/workflows/build.yml)
+
+Main concepts:
+
+Triggering the workflow on multiple events
+
+```yaml
+on:
+  - push
+  - dispatch_workflow
+```
+
+
+Defining that a job only runs after another one finishes with success
+
+```yaml
+jobs:
+  test:
+    # ...
+
+  build: # this job runs only after the 'test' job finishes with success
+    needs: test
+    # ...
+```
 
 

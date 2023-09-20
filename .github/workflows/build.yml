@@ -1,0 +1,29 @@
+name: Build after test
+
+on: # run on push but also allow manual trigger
+  - push
+  - dispatch_workflow
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm ci
+      - name: run tests
+        run: npm run test
+
+  build:
+    # this job runs only after the 'test' job finishes with success
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        # using the "checkout" action to get the code from the repo
+        uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm ci
+      - name: build project
+        run: npm run build
