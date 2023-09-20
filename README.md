@@ -21,9 +21,8 @@ jobs:
 
 ## Hello World
 
-The [hello.yml](./.github/workflows/hello.yml) is a workflow that is only triggered manually.
-
-Check it [here in the Actions tab](https://github.com/meleu/gh-actions-practice/actions/workflows/hello.yml).
+- [example](./.github/workflows/hello.yml)
+- [logs](https://github.com/meleu/gh-actions-practice/actions/workflows/hello.yml)
 
 Main concept:
 ```yaml
@@ -35,8 +34,8 @@ on: dispatch_workflow # <- trigger workflow manually
 
 ## Test on push
 
-The [test.yml](./.github/workflows/test.yml) is an example of workflow created
-to run `npm run test` when a new push happens.
+- [example](./.github/workflows/test.yml)
+- [logs](https://github.com/meleu/gh-actions-practice/actions/workflows/test.yml)
 
 Main concepts:
 ```yaml
