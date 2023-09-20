@@ -66,7 +66,7 @@ Main concepts:
 Only trigger the workflow manually
 ```yaml
 # ...
-on: dispatch_workflow # <- trigger workflow manually
+on: workflow_dispatch # <- trigger workflow manually
 # ...
 ```
 
@@ -140,7 +140,7 @@ on different events.
 ```yaml
 on:
   - push
-  - dispatch_workflow
+  - workflow_dispatch
 ```
 
 

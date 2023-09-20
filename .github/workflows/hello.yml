@@ -2,7 +2,7 @@
 name: My First Workflow
 
 # define the event that triggers this workflow
-on:  workflow_dispatch # <- this means "manual trigger"
+on: workflow_dispatch # <- this means "manual trigger"
 
 # define the **JOBS** of this workflow
 jobs:
