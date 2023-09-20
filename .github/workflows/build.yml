@@ -1,8 +1,10 @@
-name: Build after test
+name: Build after test (master)
 
-on: # run on push but also allow manual trigger
-  - push
-  - dispatch_workflow
+on:
+  push:
+    branches:
+      - master
+  dispatch_workflow:
 
 jobs:
   test:
@@ -18,6 +20,7 @@ jobs:
   build:
     # this job runs only after the 'test' job finishes with success
     needs: test
+
     runs-on: ubuntu-latest
     steps:
       - name: get code

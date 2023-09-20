@@ -109,7 +109,7 @@ We can define two different types of `steps`:
 
 ### Build after test
 
-- [example](./.github/workflows/build.yml)
+- [example](https://github.com/meleu/gh-actions-practice/commit/523eb24a2386d27aedd33f2e2367f4f470907863#diff-5c3fa597431eda03ac3339ae6bf7f05e1a50d6fc7333679ec38e21b337cb6721)
 - [logs](https://github.com/meleu/gh-actions-practice/actions/workflows/build.yml)
 
 Main concepts:
@@ -135,4 +135,19 @@ jobs:
     # ...
 ```
 
+### Only build when push on master
+
+- [example](./.github/workflows/build.yml)
+- [logs](https://github.com/meleu/gh-actions-practice/actions/workflows/build.yml)
+
+This is related to **Filters**. Check the [Workflow syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions) doc.
+
+```yaml
+# ...
+on:
+  push:
+    branches:
+      - master
+# ...
+```
 
