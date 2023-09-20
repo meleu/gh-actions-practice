@@ -4,6 +4,37 @@ A repo created to learn &amp; practice GitHub Actions
 
 The code here was taken from the [GitHub Actions - The Complete Guide](https://udemy.com/course/github-actions-the-complete-guide) udemy course and is used just for learning GitHub Actions.
 
+## Core concepts
+
+Three main building blocks:
+
+1. workflows
+2. jobs
+3. steps
+
+Relationship between them:
+
+- **Workflows**: define events + jobs
+    - **Jobs**: define runner + steps
+        - **Steps**: do the actual work
+
+A little more detailed:
+
+- workflows
+    - attached to a git repository
+    - triggered upon **events**
+    - contain multiple **jobs**
+- jobs
+    - define a **runner** (execution environment)
+    - contain multiple **steps**
+    - run in parallel (default) or sequential
+    - can be conditional
+- steps
+    - execute **shell scripts** (`run`) or **actions** (`uses`)
+    - executed in order
+    - can be conditional
+
+
 ## GitHub Workflow basic structure
 
 ```yaml
