@@ -163,3 +163,33 @@ on:
 # ...
 ```
 
+### Save build artifact
+
+For this we're going to use the [actions/upload-artifact](https://github.com/actions/upload-artifact).
+
+After this step is successfully finished, the artifacts are available
+in the workflow page.
+
+This is the interesting part:
+
+```yaml
+# ...
+steps:
+  test:
+    # ...
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      # other steps here...
+      # using this action to upload the built artifacts:
+      # https://github.com/actions/upload-artifact
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-files
+          path: |
+            dist/
+            package.json
+            package-lock.json
+```
