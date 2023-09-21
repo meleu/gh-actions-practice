@@ -196,3 +196,27 @@ steps:
             package.json
             package-lock.json
 ```
+
+### Download artifacts from a previous job
+
+
+For this we're going to use the [actions/download-artifact](https://github.com/actions/download-artifact).
+
+```yaml
+# ...
+steps:
+  # ...
+  build:
+    # ...
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      # using this action to download the built artifacts:
+      # https://github.com/actions/download-artifact
+      - name: get built artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-files
+      # ...
+```
