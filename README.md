@@ -163,14 +163,17 @@ on:
 # ...
 ```
 
-### Save build artifact
+### Save built artifact
+
+- [example](./.github/workflows/deploy.yml)
+- [logs](https://github.com/meleu/gh-actions-practice/actions/workflows/deploy.yml)
 
 For this we're going to use the [actions/upload-artifact](https://github.com/actions/upload-artifact).
 
 After this step is successfully finished, the artifacts are available
-in the workflow page.
+in the workflow page. [You can see an examplee here]().
 
-This is the interesting part:
+This is the interesting part of the yaml:
 
 ```yaml
 # ...

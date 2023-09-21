@@ -1,4 +1,4 @@
-name: Build after test (master)
+name: Test, Build and Deploy
 
 on:
   push:
@@ -18,15 +18,30 @@ jobs:
         run: npm run test
 
   build:
-    # this job runs only after the 'test' job finishes with success
     needs: test
-
     runs-on: ubuntu-latest
     steps:
       - name: get code
-        # using the "checkout" action to get the code from the repo
         uses: actions/checkout@v4
       - name: install dependencies
         run: npm ci
       - name: build project
         run: npm run build
+      # using this action to upload the built artifacts:
+      # https://github.com/actions/upload-artifact
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-files
+          path: |
+            dist/
+            package.json
+            package-lock.json
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: echo "Deploying..."
+        
